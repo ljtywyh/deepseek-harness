@@ -1,7 +1,10 @@
 services:
   dsh:
-    build: .
-    image: deepseek-harness:0.1.0-rc.8
+    # 路径 B：直接拉取 GHCR 上由 GitHub Actions 自动构建的镜像
+    image: ghcr.io/ljtywyh/deepseek-harness:latest
+    # 如需本机从源码构建（路径 A），注释上面 image 行并启用下面两行：
+    # build: .
+    # image: deepseek-harness:local
     container_name: dsh
     # 8080 = nginx 反代（已加 Basic Auth）。不要直接映射 harness 的 3080。
     ports:
