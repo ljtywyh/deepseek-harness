@@ -55,7 +55,7 @@ COPY --from=build /app /app
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh \
- && useradd -m -u 1000 app \
+ && useradd -m -s /bin/bash app \
  && mkdir -p /data /tmp/nginx-temp \
  && chown -R app:app /data /tmp/nginx-temp
 
