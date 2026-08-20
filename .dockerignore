@@ -1,5 +1,6 @@
-# 版本控制 / 依赖 / 构建缓存 —— 不进入构建上下文
-.git
+# 依赖 / 构建缓存 —— 不进入构建上下文
+# 注意：不要排除 .git！pnpm run build 会调用 `git rev-parse HEAD` 做版本戳，
+# 若 .git 不在构建上下文中会导致构建失败。
 .gitignore
 **/node_modules
 **/.turbo
